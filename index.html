@@ -33,6 +33,50 @@
             line-height:1.6;
         }
 
+        /* Navigation */
+        .navbar {
+            background: var(--surface);
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #2c5f2d 0%, #1a3a1f 50%, #0f261f 100%);
@@ -280,6 +324,22 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://voyages-ardeche.lhusser.fr/" class="nav-logo">
+                🗺️ Voyages en Ardèche
+            </a>
+            <div class="nav-links">
+                <a href="https://lhusser.fr/ardeche/">Ardeche</a>
+                <a href="https://lhusser.fr/saint-martin-ardeche/">Saint-Martin</a>
+                <a href="https://lhusser.fr/grotte-saint-marcel/">Grotte</a>
+                <a href="https://lhusser.fr/Pont-d'Arc">Pont d'Arc</a>
+                <a href="https://lhusser.fr/aigueze/">Aiguèze</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
