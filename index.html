@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyages en Ardèche | Découvrez nos destinations</title>
+    <meta name="description" content="Voyages en Ardèche - Découvrez nos 5 destinations exceptionnelles : Ardeche, Saint-Martin-de-Castillon, Grotte Saint-Marcel, Pont d'Arc et plus.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://voyages-ardeche.lhusser.fr">
+    <meta property="og:title" content="Voyages en Ardèche">
+    <meta property="og:description" content="Découvrez nos 5 destinations de voyage en Ardèche">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+    <style>
+        :root {
+            --primary: #2c5f2d;
+            --primary-dark: #1a3a1f;
+            --accent: #d4a574;
+            --accent-light: #e8d5b0;
+            --bg: #faf8f5;
+            --surface: #ffffff;
+            --text: #2d3748;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height:1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c5f2d 0%, #1a3a1f 50%, #0f261f 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="200">🏔️</text></svg>') center/100px;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #d4a574;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Destinations */
+        .destinations {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .destinations h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .card-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-features li {
+            padding: 6px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .card-features li::before {
+            content: "✓ ";
+            color: #d4a574;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .card-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+            margin-top: 10px;
+        }
+
+        .card-btn:hover {
+            background: var(--accent);
+            transform: translateX(4px);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--primary-dark);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-stats {
+                gap: 20px;
+            }
+            .destinations h2 {
+                font-size: 2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Voyages en Ardèche</h1>
+            <p>Découvrez nos 5 destinations exceptionnelles au cœur de la région</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Destinations</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Nature</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Aventure</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations -->
+    <section class="destinations">
+        <h2>Nos Destinations</h2>
+
+        <div class="cards-grid">
+            <!-- Ardeche -->
+            <div class="card">
+                <div class="card-image">🏔️</div>
+                <div class="card-content">
+                    <h3 class="card-title">Ardeche</h3>
+                    <p class="card-desc">Une région naturelle aux paysages grandioses, villages de caractère et traditions authentiques.</p>
+                    <ul class="card-features">
+                        <li>Paysages montagneux</li>
+                        <li>Patrimoine riche</li>
+                        <li>Gastronomie locale</li>
+                    </ul>
+                    <a href="#ardeche" class="card-btn">En savoir plus →</a>
+                </div>
+            </div>
+
+            <!-- Saint-Martin-de-Castillon -->
+            <div class="card">
+                <div class="card-image">🏘️</div>
+                <div class="card-content">
+                    <h3 class="card-title">Saint-Martin-de-Castillon</h3>
+                    <p class="card-desc">Village médiéval perché sur son rocher, avec ses rues pittoresques et son château emblématique.</p>
+                    <ul class="card-features">
+                        <li>Village classé</li>
+                        <li>Vue panoramique</li>
+                        <li>Architecture historique</li>
+                    </ul>
+                    <a href="#saint-martin" class="card-btn">En savoir plus →</a>
+                </div>
+            </div>
+
+            <!-- Grotte Saint-Marcel -->
+            <div class="card">
+                <div class="card-image">💎</div>
+                <div class="card-content">
+                    <h3 class="card-title">Grotte Saint-Marcel</h3>
+                    <p class="card-desc">Splendide grotte cristalline, l'une des plus belles de France, avec ses concrétions naturelles.</p>
+                    <ul class="card-features">
+                        <li>Grotte cristalline</li>
+                        <li>Concrétations</li>
+                        <li>Visite guidée</li>
+                    </ul>
+                    <a href="#grotte" class="card-btn">En savoir plus →</a>
+                </div>
+            </div>
+
+            <!-- Pont d'Arc -->
+            <div class="card">
+                <div class="card-image">🌉</div>
+                <div class="card-content">
+                    <h3 class="card-title">Pont d'Arc</h3>
+                    <p class="card-desc">Monument historique emblématique, témoin de l'histoire de la région et de ses traditions.</p>
+                    <ul class="card-features">
+                        <li>Légende historique</li>
+                        <li>Patrimoine culturel</li>
+                        <li>Panorama exceptionnel</li>
+                    </ul>
+                    <a href="#pont-darc" class="card-btn">En savoir plus →</a>
+                </div>
+            </div>
+
+            <!-- Voyages Ardeche -->
+            <div class="card">
+                <div class="card-image">🗺️</div>
+                <div class="card-content">
+                    <h3 class="card-title">Voyages Ardeche</h3>
+                    <p class="card-desc">Circuits itinérants pour découvrir tous les trésors cachés de l'Ardèche méridionale.</p>
+                    <ul class="card-features">
+                        <li>Itinéraires guidés</li>
+                        <li>Nature préservée</li>
+                        >Hébergements de charme</li>
+                    </ul>
+                    <a href="#voyages" class="card-btn">En savoir plus →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Prêt à l'aventure ?</h2>
+        <p>Contactez-nous pour organiser votre voyage en Ardèche. Nous vous proposons des séjours sur mesure pour découvrir nos 5 destinations.</p>
+        <a href="mailto:contact@lhusser.fr" class="cta-btn">📧 Nous contacter</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Voyages en Ardèche - <a href="https://lhusser.fr">lhusser.fr</a></p>
+        <p>Tous droits réservés</p>
+    </footer>
+</body>
+</html>
