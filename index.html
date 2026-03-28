@@ -141,6 +141,17 @@
             align-items: center;
             justify-content: center;
             font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .card-content {
@@ -298,7 +309,9 @@
         <div class="cards-grid">
             <!-- Ardeche -->
             <div class="card">
-                <div class="card-image">🏔️</div>
+                <div class="card-image">
+                    <img src="https://lhusser.fr/ardeche/images/bois-paiolive.jpg" alt="Bois de Paiolive en Ardèche" loading="lazy">
+                </div>
                 <div class="card-content">
                     <h3 class="card-title">Ardeche</h3>
                     <p class="card-desc">Une région naturelle aux paysages grandioses, villages de caractère et traditions authentiques.</p>
@@ -313,7 +326,9 @@
 
             <!-- Saint-Martin-de-Castillon -->
             <div class="card">
-                <div class="card-image">🏘️</div>
+                <div class="card-image">
+                    <img src="https://lhusser.fr/saint-martin-ardeche/eglise-saint-martin.jpg" alt="Église Saint-Martin" loading="lazy">
+                </div>
                 <div class="card-content">
                     <h3 class="card-title">Saint-Martin-de-Castillon</h3>
                     <p class="card-desc">Village médiéval perché sur son rocher, avec ses rues pittoresques et son château emblématique.</p>
@@ -328,7 +343,9 @@
 
             <!-- Grotte Saint-Marcel -->
             <div class="card">
-                <div class="card-image">💎</div>
+                <div class="card-image">
+                    <img src="https://lhusser.fr/grotte-saint-marcel/grotte-saint-marcel-bassins-bleus.jpg" alt="Grotte Saint-Marcel - Bassins bleus" loading="lazy">
+                </div>
                 <div class="card-content">
                     <h3 class="card-title">Grotte Saint-Marcel</h3>
                     <p class="card-desc">Splendide grotte cristalline, l'une des plus belles de France, avec ses concrétions naturelles.</p>
@@ -343,7 +360,9 @@
 
             <!-- Pont d'Arc -->
             <div class="card">
-                <div class="card-image">🌉</div>
+                <div class="card-image">
+                    <img src="https://lhusser.fr/Pont-d'Arc/images/pont-arc-hero.jpg" alt="Pont d'Arc" loading="lazy">
+                </div>
                 <div class="card-content">
                     <h3 class="card-title">Pont d'Arc</h3>
                     <p class="card-desc">Monument historique emblématique, témoin de l'histoire de la région et de ses traditions.</p>
@@ -358,7 +377,9 @@
 
             <!-- Voyages Ardeche -->
             <div class="card">
-                <div class="card-image">🗺️</div>
+                <div class="card-image">
+                    <img src="https://lhusser.fr/aigueze/village.jpg" alt="Village d'Aiguèze" loading="lazy">
+                </div>
                 <div class="card-content">
                     <h3 class="card-title">Voyages Ardeche</h3>
                     <p class="card-desc">Circuits itinérants pour découvrir tous les trésors cachés de l'Ardèche méridionale.</p>
