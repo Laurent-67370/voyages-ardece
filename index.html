@@ -35,12 +35,14 @@
 
         /* Navigation */
         .navbar {
-            background: var(--surface);
-            padding: 15px 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0 20px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
         }
 
         .nav-container {
@@ -49,32 +51,77 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 70px;
         }
 
         .nav-logo {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
             color: var(--primary);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            transition: transform 0.2s;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.02);
+        }
+
+        .nav-logo-icon {
+            font-size: 1.8rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 8px;
+            align-items: center;
         }
 
-        .nav-links a {
+        .nav-link {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            position: relative;
         }
 
-        .nav-links a:hover {
+        .nav-link:hover {
             color: var(--primary);
+            background: var(--bg);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            background: var(--bg);
+            font-weight: 600;
+        }
+
+        .nav-link-icon {
+            margin-right: 6px;
+        }
+
+        /* Mobile menu button */
+        .nav-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-menu-btn {
+                display: block;
+            }
         }
 
         /* Hero Section */
@@ -328,15 +375,30 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="https://voyages-ardeche.lhusser.fr/" class="nav-logo">
-                🗺️ Voyages en Ardèche
+                <span class="nav-logo-icon">🗺️</span>
+                <span>Voyages en Ardèche</span>
             </a>
             <div class="nav-links">
-                <a href="https://lhusser.fr/ardeche/">Ardeche</a>
-                <a href="https://lhusser.fr/saint-martin-ardeche/">Saint-Martin</a>
-                <a href="https://lhusser.fr/grotte-saint-marcel/">Grotte</a>
-                <a href="https://lhusser.fr/Pont-d'Arc">Pont d'Arc</a>
-                <a href="https://lhusser.fr/aigueze/">Aiguèze</a>
+                <a href="https://voyages-ardeche.lhusser.fr/" class="nav-link active">
+                    <span class="nav-link-icon">🏠</span>Accueil
+                </a>
+                <a href="https://lhusser.fr/ardeche/" class="nav-link">
+                    <span class="nav-link-icon">🏔️</span>Ardeche
+                </a>
+                <a href="https://lhusser.fr/saint-martin-ardeche/" class="nav-link">
+                    <span class="nav-link-icon">⛪</span>Saint-Martin
+                </a>
+                <a href="https://lhusser.fr/grotte-saint-marcel/" class="nav-link">
+                    <span class="nav-link-icon">💎</span>Grotte
+                </a>
+                <a href="https://lhusser.fr/Pont-d'Arc" class="nav-link">
+                    <span class="nav-link-icon">🌉</span>Pont d'Arc
+                </a>
+                <a href="https://lhusser.fr/aigueze/" class="nav-link">
+                    <span class="nav-link-icon">🏰</span>Aiguèze
+                </a>
             </div>
+            <button class="nav-menu-btn" onclick="toggleMenu()">☰</button>
         </div>
     </nav>
 
@@ -483,5 +545,22 @@
         <p>© 2026 Voyages en Ardèche - <a href="https://lhusser.fr">lhusser.fr</a></p>
         <p>Tous droits réservés</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            }
+        }
+    </script>
 </body>
 </html>
